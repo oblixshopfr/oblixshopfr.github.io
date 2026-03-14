@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Oblix Shop</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Black+Ops+One&family=Rajdhani:wght@500;600;700&family=Orbitron:wght@700;900&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@700;800&family=Space+Grotesk:wght@300;400;500;600&family=Rajdhani:wght@600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -12,7 +12,7 @@
   --bg:#060606;--text:#efefef;--muted:#555;
 }
 html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;position:relative;}
+body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;overflow-x:hidden;position:relative;}
 
 #fx-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%;}
 /* Edge glow — very subtle, just a soft atmospheric haze, no bubbles */
@@ -33,7 +33,7 @@ body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
   background-size:52px 52px;}
 
 /* ── BANNER ── */
-.banner{position:relative;z-index:20;background:var(--red);text-align:center;padding:8px 16px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;}
+.banner{position:relative;z-index:20;background:var(--red);text-align:center;padding:8px 16px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px;letter-spacing:3px;text-transform:uppercase;}
 
 /* ── NAV ── */
 nav{position:sticky;top:0;z-index:100;background:rgba(6,6,6,.93);backdrop-filter:blur(22px);border-bottom:1px solid rgba(200,0,0,.15);height:60px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 32px;}
@@ -42,7 +42,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(6,6,6,.93);backdrop-filter
 .nav-logo-name{font-family:'Orbitron',sans-serif;font-weight:700;font-size:14px;color:#fff;letter-spacing:1px;}
 .nav-logo-name b{color:var(--red);}
 .nav-links{display:flex;gap:32px;list-style:none;justify-self:center;}
-.nav-links a{color:#999;text-decoration:none;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;transition:color .2s;}
+.nav-links a{color:#888;text-decoration:none;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:color .2s;}
 .nav-links a:hover{color:#fff;}
 .nav-right{display:flex;gap:8px;justify-self:end;}
 .nav-btn{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(200,0,0,.25);border-radius:7px;background:transparent;text-decoration:none;transition:all .2s;}
@@ -56,7 +56,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(6,6,6,.93);backdrop-filter
   display:inline-flex;align-items:center;gap:8px;
   background:rgba(212,24,24,.1);border:1px solid rgba(212,24,24,.4);
   border-radius:30px;padding:6px 22px;margin-bottom:36px;
-  font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--red2);
+  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--red2);
   box-shadow:0 0 20px rgba(212,24,24,.12),inset 0 0 12px rgba(212,24,24,.05);
   animation:pillglow 3s ease-in-out infinite;
 }
@@ -145,12 +145,12 @@ nav{position:sticky;top:0;z-index:100;background:rgba(6,6,6,.93);backdrop-filter
   font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:5px;
   color:rgba(212,24,24,.4);text-transform:uppercase;
 }
-.hero-sub{font-family:'Barlow Condensed',sans-serif;font-size:19px;color:rgba(255,255,255,.45);margin-bottom:44px;font-weight:400;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.65;border-left:2px solid rgba(212,24,24,.4);padding-left:16px;text-align:left;letter-spacing:.5px;}
+.hero-sub{font-family:'Space Grotesk',sans-serif;font-size:15px;color:rgba(255,255,255,.42);margin-bottom:44px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.75;border-left:2px solid rgba(212,24,24,.35);padding-left:16px;text-align:left;letter-spacing:.2px;}
 .hero-sub b{color:rgba(255,255,255,.75);font-weight:500;}
 .hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn-red{background:var(--red);color:#fff;border:none;padding:13px 32px;border-radius:8px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .22s;box-shadow:0 4px 24px rgba(200,0,0,.32);}
+.btn-red{background:var(--red);color:#fff;border:none;padding:13px 32px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .22s;box-shadow:0 4px 24px rgba(200,0,0,.32);}
 .btn-red:hover{background:var(--red2);box-shadow:0 6px 36px rgba(220,0,0,.55);transform:translateY(-2px);}
-.btn-ghost{background:transparent;color:#ccc;border:1px solid rgba(255,255,255,.16);padding:13px 32px;border-radius:8px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .22s;}
+.btn-ghost{background:transparent;color:#ccc;border:1px solid rgba(255,255,255,.16);padding:13px 32px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .22s;}
 .btn-ghost:hover{border-color:var(--red);color:var(--red2);}
 
 /* ── STATS ── */
@@ -158,15 +158,15 @@ nav{position:sticky;top:0;z-index:100;background:rgba(6,6,6,.93);backdrop-filter
 .stat{background:rgba(12,3,3,.9);border:1px solid rgba(200,0,0,.14);border-radius:12px;padding:18px 34px;text-align:center;backdrop-filter:blur(8px);transition:all .25s;}
 .stat:hover{border-color:rgba(212,24,24,.4);box-shadow:0 0 24px rgba(200,0,0,.1);}
 .stat-n{display:block;font-family:'Orbitron',sans-serif;font-size:26px;font-weight:900;color:var(--red);text-shadow:0 0 20px rgba(200,0,0,.5);}
-.stat-l{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-family:'Rajdhani',sans-serif;font-weight:600;margin-top:3px;}
+.stat-l{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-family:'Space Grotesk',sans-serif;font-weight:500;margin-top:3px;}
 
 .divider{height:1px;margin:0 48px 76px;z-index:1;position:relative;background:linear-gradient(90deg,transparent,rgba(200,0,0,.35),transparent);}
 
 /* ── SECTION ── */
 .section{position:relative;z-index:1;max-width:1300px;margin:0 auto;padding:0 32px 100px;}
 .sec-head{text-align:center;margin-bottom:52px;}
-.sec-label{font-size:10px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;font-family:'Rajdhani',sans-serif;font-weight:600;margin-bottom:8px;}
-.sec-title{font-family:'Orbitron',sans-serif;font-size:24px;font-weight:700;letter-spacing:2px;}
+.sec-label{font-size:10px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;font-family:'Space Grotesk',sans-serif;font-weight:500;margin-bottom:8px;}
+.sec-title{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:1px;}
 .sec-bar{width:50px;height:3px;background:var(--red);margin:12px auto 0;border-radius:2px;box-shadow:0 0 10px var(--rg);}
 
 /* ════════════════════════════════
@@ -210,8 +210,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(6,6,6,.93);backdrop-filter
 .pcard-topfade{position:absolute;top:0;left:0;right:0;height:56px;z-index:2;background:linear-gradient(to bottom,rgba(0,0,0,.5),transparent);}
 
 /* badges */
-.pcard-cat{position:absolute;top:13px;left:13px;z-index:4;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(6px);border-radius:5px;padding:3px 10px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#ccc;}
-.pcard-badge{position:absolute;top:13px;right:13px;z-index:4;border-radius:5px;padding:3px 10px;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#fff;}
+.pcard-cat{position:absolute;top:13px;left:13px;z-index:4;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.13);backdrop-filter:blur(6px);border-radius:5px;padding:3px 10px;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#aaa;}
+.pcard-badge{position:absolute;top:13px;right:13px;z-index:4;border-radius:5px;padding:3px 10px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;}
 
 /* info text bottom */
 .pcard-body{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:16px 18px 18px;}
@@ -356,12 +356,12 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
 
 .dev-info{display:flex;flex-direction:column;gap:2px;}
 .dev-name{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:20px;color:#fff;letter-spacing:.5px;}
-.dev-handle{font-size:11px;color:#444;font-family:'DM Sans',sans-serif;font-weight:400;letter-spacing:.3px;}
+.dev-handle{font-size:11px;color:#444;font-family:'Space Grotesk',sans-serif;font-weight:400;letter-spacing:.3px;}
 .dev-role{font-size:11px;color:var(--red);font-family:'Rajdhani',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;}
 
 /* bio lines */
 .dev-bio-block{display:flex;flex-direction:column;gap:7px;}
-.dev-bio-line{display:flex;align-items:center;gap:7px;font-size:13px;color:#888;font-family:'DM Sans',sans-serif;font-weight:300;}
+.dev-bio-line{display:flex;align-items:center;gap:7px;font-size:13px;color:#888;font-family:'Space Grotesk',sans-serif;font-weight:300;}
 .dev-bio-line svg{flex-shrink:0;opacity:.85;}
 
 .dev-tags{display:flex;gap:7px;flex-wrap:wrap;}
@@ -423,6 +423,86 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
 }
 .pay-warning-dot.green{background:#22dd66;box-shadow:0 0 6px #22dd66;animation:warnpulse 2.2s ease-in-out infinite;}
 .pay-warning-dot{width:5px;height:5px;border-radius:50%;background:#ffa020;box-shadow:0 0 6px #ffa020;animation:warnpulse 1.8s ease-in-out infinite;}
+
+/* ── TERMS ── */
+.terms-section{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:0 32px 100px;}
+.terms-box{background:rgba(10,2,2,.85);border:1px solid rgba(200,0,0,.12);border-radius:16px;padding:48px;backdrop-filter:blur(8px);}
+.terms-box h3{font-family:'Syne',sans-serif;font-weight:800;font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px;margin-top:32px;}
+.terms-box h3:first-child{margin-top:0;}
+.terms-box p{font-family:'Space Grotesk',sans-serif;font-size:13px;color:rgba(255,255,255,.38);line-height:1.85;font-weight:300;margin-bottom:4px;}
+.terms-box p b{color:rgba(255,255,255,.6);font-weight:500;}
+.terms-box .terms-intro{font-size:14px;color:rgba(255,255,255,.45);line-height:1.9;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,.05);}
+
+/* ── FILTERS ── */
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:36px;}
+.filt{
+  background:transparent;border:1px solid rgba(255,255,255,.1);
+  border-radius:30px;padding:6px 18px;
+  font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:11px;
+  letter-spacing:1.5px;text-transform:uppercase;color:#666;
+  cursor:pointer;transition:all .2s;
+}
+.filt:hover{border-color:rgba(212,24,24,.4);color:#ccc;}
+.filt.active{background:rgba(212,24,24,.15);border-color:var(--red);color:#fff;box-shadow:0 0 12px rgba(212,24,24,.2);}
+
+/* ── LOW STOCK badge ── */
+.pcard-lowstock{
+  position:absolute;bottom:56px;right:13px;z-index:4;
+  background:rgba(255,80,0,.18);border:1px solid rgba(255,80,0,.4);
+  border-radius:5px;padding:2px 8px;
+  font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:9px;
+  letter-spacing:1px;text-transform:uppercase;color:#ff8040;
+  animation:lowblink 2s ease-in-out infinite;
+}
+@keyframes lowblink{0%,100%{opacity:1;}50%{opacity:.5;}}
+
+/* ── NEW badge override ── */
+.badge-new{background:linear-gradient(135deg,#22dd66,#00aa44)!important;color:#000!important;}
+
+/* ── REVIEWS SECTION ── */
+.reviews-section{position:relative;z-index:1;max-width:1300px;margin:0 auto;padding:0 32px 100px;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+@media(max-width:900px){.reviews-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.reviews-grid{grid-template-columns:1fr;}}
+.rcard{
+  background:rgba(10,2,2,.8);border:1px solid rgba(255,255,255,.06);
+  border-radius:14px;padding:22px 24px;
+  transition:border-color .25s,transform .25s;
+  position:relative;overflow:hidden;
+}
+.rcard::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,24,24,.25),transparent);
+}
+.rcard:hover{border-color:rgba(255,255,255,.12);transform:translateY(-3px);}
+.rcard-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.rcard-avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:var(--av-bg,#333);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13px;color:#fff;
+  flex-shrink:0;box-shadow:0 0 10px var(--av-glow,rgba(255,255,255,.1));
+}
+.rcard-info{flex:1;min-width:0;}
+.rcard-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;color:#ddd;}
+.rcard-product{font-size:10px;color:#444;letter-spacing:1px;text-transform:uppercase;font-family:'Space Grotesk',sans-serif;margin-top:1px;}
+.rcard-stars{display:flex;gap:2px;margin-bottom:10px;}
+.rcard-stars span{color:#ffa020;font-size:12px;}
+.rcard-stars span.empty{color:#2a2a2a;}
+.rcard-text{font-family:'Space Grotesk',sans-serif;font-size:13px;color:rgba(255,255,255,.4);line-height:1.7;font-weight:300;}
+.rcard-date{font-size:10px;color:#333;margin-top:10px;font-family:'Space Grotesk',sans-serif;letter-spacing:.5px;}
+.reviews-summary{display:flex;align-items:center;justify-content:center;gap:32px;margin-bottom:48px;flex-wrap:wrap;}
+.rsumm-score{text-align:center;}
+.rsumm-big{font-family:'Syne',sans-serif;font-weight:800;font-size:52px;color:#fff;line-height:1;}
+.rsumm-stars{display:flex;gap:3px;justify-content:center;margin:6px 0;}
+.rsumm-stars span{color:#ffa020;font-size:16px;}
+.rsumm-count{font-size:11px;color:#444;font-family:'Space Grotesk',sans-serif;letter-spacing:1px;}
+.rsumm-sep{width:1px;height:60px;background:rgba(255,255,255,.06);}
+.rsumm-bars{display:flex;flex-direction:column;gap:6px;}
+.rsumm-bar-row{display:flex;align-items:center;gap:10px;}
+.rsumm-bar-lbl{font-size:11px;color:#555;font-family:'Space Grotesk',sans-serif;width:10px;text-align:right;}
+.rsumm-bar-track{width:120px;height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;}
+.rsumm-bar-fill{height:100%;background:linear-gradient(90deg,#ffa020,#ffcc60);border-radius:2px;}
 </style>
 </head>
 <body>
@@ -431,7 +511,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
 <div class="heat-b"></div><div class="heat-t"></div>
 <canvas id="fx-canvas"></canvas>
 
-<div class="banner">⚡ Oblix Shop — Produits premium · Support 24/7 · Owner: D3fz</div>
+<div class="banner">⚡ Oblix Shop · Owner: D3fz · Support 24/7 · Paiement sur Discord</div>
 
 <nav>
   <a href="#" class="nav-logo">
@@ -443,6 +523,8 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
     <li><a href="#">Home</a></li>
     <li><a href="#shop">Produits</a></li>
     <li><a href="https://discord.gg/DNQeVQeh4X" target="_blank">Discord</a></li>
+    <li><a href="#reviews">Avis</a></li>
+    <li><a href="#terms">CGV</a></li>
   </ul>
   <div class="nav-right">
     <a href="https://discord.gg/DNQeVQeh4X" target="_blank" class="nav-btn">
@@ -469,7 +551,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
 <section class="hero reveal">
   <h1><span class="white-word">OBLIX</span><span class="sep"></span><span class="red">SHOP</span></h1>
   <div class="hero-pill"><span class="hero-pill-dot"></span>Premium Digital Tools</div>
-  <p class="hero-sub"><b>Comptes premium, outils Discord, méthodes exclusives.</b><br>Livrés rapidement — à des prix imbattables.</p>
+  <p class="hero-sub"><b>Comptes premium, tools Discord, méthodes.</b><br>On livre vite, on répond vite, les prix sont honnêtes.</p>
   <div class="hero-ctas">
     <a href="#shop" class="btn-red">Voir les produits</a>
     <a href="https://discord.gg/DNQeVQeh4X" target="_blank" class="btn-ghost">Discord</a>
@@ -490,6 +572,15 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
     <p class="sec-label">Ce qu'on vend</p>
     <h2 class="sec-title">Boutique</h2>
     <div class="sec-bar"></div>
+  </div>
+  <div class="filter-bar" id="filterBar">
+    <button class="filt active" data-cat="all">Tout</button>
+    <button class="filt" data-cat="Streaming">Streaming</button>
+    <button class="filt" data-cat="Discord">Discord</button>
+    <button class="filt" data-cat="Gaming">Gaming</button>
+    <button class="filt" data-cat="AI">AI</button>
+    <button class="filt" data-cat="Tool">Tools</button>
+    <button class="filt" data-cat="Method">Méthodes</button>
   </div>
   <div class="prod-grid" id="prodGrid"></div>
 </section>
@@ -561,15 +652,158 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
   </div>
 </section>
 
+
+
+<section class="reviews-section" id="reviews">
+  <div class="sec-head reveal" style="margin-bottom:44px;">
+    <p class="sec-label">Ce qu'ils disent</p>
+    <h2 class="sec-title">Avis clients</h2>
+    <div class="sec-bar"></div>
+  </div>
+
+  <div class="reviews-summary reveal">
+    <div class="rsumm-score">
+      <div class="rsumm-big">4.9</div>
+      <div class="rsumm-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="rsumm-count">+120 avis vérifiés</div>
+    </div>
+    <div class="rsumm-sep"></div>
+    <div class="rsumm-bars">
+      <div class="rsumm-bar-row"><span class="rsumm-bar-lbl">5</span><div class="rsumm-bar-track"><div class="rsumm-bar-fill" style="width:88%"></div></div></div>
+      <div class="rsumm-bar-row"><span class="rsumm-bar-lbl">4</span><div class="rsumm-bar-track"><div class="rsumm-bar-fill" style="width:9%;opacity:.6"></div></div></div>
+      <div class="rsumm-bar-row"><span class="rsumm-bar-lbl">3</span><div class="rsumm-bar-track"><div class="rsumm-bar-fill" style="width:2%;opacity:.4"></div></div></div>
+      <div class="rsumm-bar-row"><span class="rsumm-bar-lbl">2</span><div class="rsumm-bar-track"><div class="rsumm-bar-fill" style="width:1%;opacity:.3"></div></div></div>
+      <div class="rsumm-bar-row"><span class="rsumm-bar-lbl">1</span><div class="rsumm-bar-track"><div class="rsumm-bar-fill" style="width:0%"></div></div></div>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+
+    <div class="rcard reveal" style="--av-bg:#d41818;--av-glow:rgba(212,24,24,.3)">
+      <div class="rcard-top">
+        <div class="rcard-avatar">ZK</div>
+        <div class="rcard-info">
+          <div class="rcard-name">zkiller_</div>
+          <div class="rcard-product">Netflix Lifetime</div>
+        </div>
+      </div>
+      <div class="rcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="rcard-text">livré en moins de 5min, compte fonctionne nickel. pas eu besoin de support</div>
+      <div class="rcard-date">il y a 2 jours</div>
+    </div>
+
+    <div class="rcard reveal" style="--av-bg:#5865f2;--av-glow:rgba(88,101,242,.3)">
+      <div class="rcard-top">
+        <div class="rcard-avatar">NX</div>
+        <div class="rcard-info">
+          <div class="rcard-name">nxght.exe</div>
+          <div class="rcard-product">Nitro Lifetime</div>
+        </div>
+      </div>
+      <div class="rcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="rcard-text">fr c'est ouf pour le prix. nitro à vie c'est une affaire. D3fz répond vite sur le discord</div>
+      <div class="rcard-date">il y a 4 jours</div>
+    </div>
+
+    <div class="rcard reveal" style="--av-bg:#10a37f;--av-glow:rgba(16,163,127,.3)">
+      <div class="rcard-top">
+        <div class="rcard-avatar">RV</div>
+        <div class="rcard-info">
+          <div class="rcard-name">r4venz</div>
+          <div class="rcard-product">ChatGPT+ Individual</div>
+        </div>
+      </div>
+      <div class="rcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="rcard-text">4€ le chatgpt+ ?? j'y croyais pas. marche parfaitement, GPT-4 accessible direct</div>
+      <div class="rcard-date">il y a 5 jours</div>
+    </div>
+
+    <div class="rcard reveal" style="--av-bg:#f84f00;--av-glow:rgba(248,79,0,.3)">
+      <div class="rcard-top">
+        <div class="rcard-avatar">LX</div>
+        <div class="rcard-info">
+          <div class="rcard-name">l3xus__</div>
+          <div class="rcard-product">Fresh FiveM</div>
+        </div>
+      </div>
+      <div class="rcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="rcard-text">besoin d'un compte propre pour repartir, 80cts c'est littéralement rien. livré rapide</div>
+      <div class="rcard-date">il y a 1 semaine</div>
+    </div>
+
+    <div class="rcard reveal" style="--av-bg:#9945ff;--av-glow:rgba(153,69,255,.3)">
+      <div class="rcard-top">
+        <div class="rcard-avatar">SH</div>
+        <div class="rcard-info">
+          <div class="rcard-name">sh4rky</div>
+          <div class="rcard-product">Spotify Premium</div>
+        </div>
+      </div>
+      <div class="rcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="rcard-text">3€ le spotify premium lifetime... j'aurais dû venir ici bien avant. aucun bug pour l'instant</div>
+      <div class="rcard-date">il y a 1 semaine</div>
+    </div>
+
+    <div class="rcard reveal" style="--av-bg:#bb88ff;--av-glow:rgba(187,136,255,.3)">
+      <div class="rcard-top">
+        <div class="rcard-avatar">VD</div>
+        <div class="rcard-info">
+          <div class="rcard-name">v0idex</div>
+          <div class="rcard-product">Server Boost x14</div>
+        </div>
+      </div>
+      <div class="rcard-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <div class="rcard-text">serv monté niveau 3 en 2min, pas de souci. acheté 2 fois déjà, toujours pareil</div>
+      <div class="rcard-date">il y a 2 semaines</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="terms-section reveal" id="terms">
+  <div class="sec-head reveal" style="margin-bottom:36px;">
+    <p class="sec-label">Légal</p>
+    <h2 class="sec-title">Conditions Générales de Vente</h2>
+    <div class="sec-bar"></div>
+  </div>
+  <div class="terms-box">
+    <p class="terms-intro">Ces CGV s'appliquent à tous les achats effectués sur Oblix Shop. En passant commande, tu acceptes les conditions ci-dessous. Si t'as une question, le Discord c'est le bon endroit.</p>
+
+    <h3>Produits vendus</h3>
+    <p>Oblix Shop vend des <b>accès numériques</b> — comptes premium, outils, méthodes et services liés à Discord. Tous les produits sont livrés par voie numérique (mail ou Discord).</p>
+
+    <h3>Commande &amp; paiement</h3>
+    <p>Les commandes se passent <b>exclusivement sur le serveur Discord</b> (<a href="https://discord.gg/DNQeVQeh4X" target="_blank" style="color:#d41818;text-decoration:none;">discord.gg/DNQeVQeh4X</a>). Les paiements sont acceptés en PayPal, Litecoin et Solana. Aucun paiement n'est traité directement sur ce site.</p>
+
+    <h3>Délai de livraison</h3>
+    <p>Les livraisons sont effectuées dans les délais indiqués sur chaque produit — généralement <b>instantané à 2h</b> selon le produit. Certaines livraisons manuelles peuvent prendre jusqu'à 24h.</p>
+
+    <h3>Remboursements</h3>
+    <p>Vu la nature numérique des produits, <b>aucun remboursement n'est possible</b> une fois la livraison effectuée. En cas de problème (compte invalide, produit non fonctionnel), on règle ça directement sur le Discord — on est là pour ça.</p>
+
+    <h3>Garantie</h3>
+    <p>Les comptes lifetime sont garantis <b>fonctionnels au moment de la livraison</b>. Si un compte ne fonctionne pas à la réception, ouvre un ticket. On remplace, on rembourse pas — c'est comme ça qu'on gère.</p>
+
+    <h3>Responsabilité</h3>
+    <p>Oblix Shop n'est pas responsable de l'utilisation que tu fais des produits achetés. Les comptes doivent être utilisés de façon raisonnable — changer le mot de passe immédiatement à réception est conseillé.</p>
+
+    <h3>Contact</h3>
+    <p>Pour toute question ou litige : <a href="https://discord.gg/DNQeVQeh4X" target="_blank" style="color:#d41818;text-decoration:none;">discord.gg/DNQeVQeh4X</a> — Owner D3fz répond en général vite.</p>
+  </div>
+</section>
+
 <footer>
   <div class="foot-logo">OBLIX <b>SHOP</b></div>
   <div class="foot-proj">Un projet de <span>ObliX Project</span> — Owner &amp; Dev : <span>D3fz</span></div>
   <div class="foot-links">
-    <a href="#">Home</a><a href="#shop">Produits</a>
+    <a href="#">Home</a>
+    <a href="#shop">Produits</a>
     <a href="https://discord.gg/DNQeVQeh4X" target="_blank">Discord</a>
     <a href="https://discord.gg/DNQeVQeh4X" target="_blank">Support</a>
+    <a href="#reviews">Avis</a>
+    <a href="#terms">CGV</a>
   </div>
-  <div class="foot-copy">© 2025 Oblix Shop · ObliX Project · Tous droits réservés</div>
+  <div class="foot-copy">© 2025 Oblix Shop · Tous droits réservés · Les produits vendus sont fournis tels quels</div>
 </footer>
 
 <a href="https://discord.gg/DNQeVQeh4X" target="_blank" class="promo">
@@ -717,19 +951,19 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
 
 /* ── PRODUCTS ── */
 const PRODUCTS=[
-  {id:'token',name:'TOKEN CHECKER',acc:'UHQ',artText:'TOKEN\nCHECKER',category:'Tool',badge:null,desc:'Vérificateur de tokens Discord ultra haute qualité. Analyse rapide, précise et fiable en masse. Détection de tokens valides, invalides et locked en quelques secondes.',priceDisplay:'€5.00',variants:null,stock:34,delivery:'Livraison instantanée',accent:'#d41818',glow:'rgba(212,24,24,.5)'},
-  {id:'netflix',name:'NETFLIX',acc:'LIFETIME',artText:'NETFLIX\nLIFETIME',category:'Streaming',badge:'LIFETIME',desc:"Accès Netflix Lifetime via mail. Profitez de tous vos films et séries préférés sans limite. Format de livraison : Email:Password.",priceDisplay:'€2.00',variants:null,stock:66,delivery:'Livraison par mail (< 2h)',accent:'#e50914',glow:'rgba(229,9,20,.5)'},
-  {id:'stake',name:'STAKE',acc:'LIFETIME',artText:'STAKE\nLIFETIME',category:'Gambling',badge:'LIFETIME',desc:"Accès Stake Lifetime via mail. Compte vérifié et actif. Format de livraison : Email:Password.",priceDisplay:'€3.00',variants:null,stock:39,delivery:'Livraison par mail (< 2h)',accent:'#00e701',glow:'rgba(0,231,1,.5)'},
-  {id:'disney',name:'DISNEY+',acc:'LIFETIME',artText:'DISNEY+\nLIFETIME',category:'Streaming',badge:'LIFETIME',desc:"Accès Disney+ Lifetime via mail. Profitez de tout le catalogue Disney, Marvel, Star Wars et National Geographic. Format de livraison : Email:Password.",priceDisplay:'€2.00',variants:null,stock:9,delivery:'Livraison par mail (< 2h)',accent:'#0063e5',glow:'rgba(0,99,229,.5)'},
-  {id:'tools',name:'OBLIX',acc:'TOOLS',artText:'OBLIX\nTOOLS',category:'Multi-accès',badge:'POPULAIRE',desc:"Suite d'outils tout-en-un par D3fz. Mises à jour régulières, accès complet. Choisissez votre durée d'accès.",priceDisplay:null,variants:[{name:'Day Access',stock:999,price:'€6.00'},{name:'Week Access',stock:999,price:'€9.99'},{name:'Monthly Access',stock:999,price:'€18.99'},{name:'Lifetime',stock:999,price:'€35.00'}],stock:999,delivery:'Livraison instantanée',accent:'#1a6be0',glow:'rgba(26,107,224,.5)'},
-  {id:'search',name:'OBLIX',acc:'SEARCH',artText:'OBLIX\nSEARCH',category:'Bot Discord',badge:'OSINT',desc:"Bot Discord OSINT via API SeekNow. Lookup username / email / IP / téléphone. Résultats multi-plateforme en temps réel.",priceDisplay:'€20.00',variants:null,stock:82,delivery:'Livraison manuelle (< 24h)',accent:'#7040e0',glow:'rgba(112,64,224,.5)'},
-  {id:'boost1',name:'SERVER BOOST',acc:'x14 · 1 MOIS',artText:'SERVER\nBOOST',category:'Boost Discord',badge:null,desc:"14 boosts Discord pendant 1 mois. Niveau 3 : audio 384kbps, émojis animés illimités, bannière animée.",priceDisplay:'€2.50',variants:null,stock:80,delivery:'Livraison dans les 24h',accent:'#9966ff',glow:'rgba(153,102,255,.5)'},
-  {id:'boost3',name:'SERVER BOOST',acc:'x14 · 3 MOIS',artText:'SERVER\nBOOST',category:'Boost Discord',badge:'PROMO',desc:"14 boosts sur 3 mois. Niveau 3 garanti sur la durée, au meilleur tarif.",priceDisplay:'€5.00',variants:null,stock:48,delivery:'Livraison dans les 24h',accent:'#bb88ff',glow:'rgba(187,136,255,.5)'},
-  {id:'nitro',name:'NITRO',acc:'METHOD',artText:'NITRO\nMETHOD',category:'Method',badge:'EXCLUSIF',desc:"Méthode exclusive pour obtenir Discord Nitro. Guide étape par étape, 100% fonctionnel. Accès à vie + mises à jour incluses.",priceDisplay:'€30.00',variants:null,stock:999,delivery:'Livraison instantanée',accent:'#cc44ee',glow:'rgba(204,68,238,.5)'},
-  {id:'spotify',name:'SPOTIFY',acc:'PREMIUM',artText:'SPOTIFY\nPREMIUM',category:'Streaming',badge:'LIFETIME',desc:"Accès Spotify Premium à vie via mail. Musique illimitée sans pub, qualité audio maximale, téléchargement hors-ligne, écoute sur tous tes appareils. Livraison rapide par mail.",priceDisplay:'€3.00',variants:null,stock:58,delivery:'Livraison par mail (< 2h)',accent:'#1db954',glow:'rgba(29,185,84,.5)'},
-  {id:'chatgpt',name:'CHATGPT+',acc:'LIFETIME',artText:'CHATGPT+\nLIFETIME',category:'AI',badge:'LIFETIME',desc:"Accès ChatGPT Plus Lifetime via mail. Individual à 4€, Business à 8€. Profitez de GPT-4, génération d'images et accès prioritaire. Format de livraison : Email:Password.",priceDisplay:null,variants:[{name:'Individual',stock:77,price:'€4.00'},{name:'Business',stock:60,price:'€8.00'}],stock:32,delivery:'Livraison par mail (< 2h)',accent:'#10a37f',glow:'rgba(16,163,127,.5)'},
-  {id:'nitrolife',name:'NITRO',acc:'LIFETIME',artText:'NITRO\nLIFETIME',category:'Discord',badge:'LIFETIME',desc:"Abonnement Discord Nitro Lifetime à vie. Profitez de tous les avantages Nitro définitivement : boosting, emojis, badges exclusifs, qualité vidéo et audio maximale.",priceDisplay:'€30.00',variants:null,stock:12,delivery:'Livraison instantanée',accent:'#5865f2',glow:'rgba(88,101,242,.5)'},
-  {id:'fivem',name:'FRESH',acc:'FIVEM',artText:'FRESH\nFIVEM',category:'Gaming',badge:'CLEAN',desc:"Compte FiveM fresh totalement vierge. Non banni, prêt à jouer. Idéal pour repartir sur de nouvelles bases. Livraison rapide par mail.",priceDisplay:'€0.80',variants:null,stock:71,delivery:'Livraison par mail (< 2h)',accent:'#f84f00',glow:'rgba(248,79,0,.5)'},
+  {id:'token',name:'TOKEN CHECKER',acc:'UHQ',artText:'TOKEN\nCHECKER',category:'Tool',badge:null,desc:'Check tes tokens Discord en masse — valides, invalides, locked. Rapide et fiable, c\'est l\'outil qu\'on utilise nous-mêmes.',priceDisplay:'€5.00',variants:null,stock:34,delivery:'Livraison instantanée',accent:'#d41818',glow:'rgba(212,24,24,.5)'},
+  {id:'netflix',name:'NETFLIX',acc:'LIFETIME',artText:'NETFLIX\nLIFETIME',category:'Streaming',badge:'LIFETIME',desc:"Compte Netflix lifetime, livré par mail sous 2h. Format Email:Password, tu changes juste le mdp et c'est à toi.",priceDisplay:'€2.00',variants:null,stock:66,delivery:'Livraison par mail (< 2h)',accent:'#e50914',glow:'rgba(229,9,20,.5)'},
+  {id:'stake',name:'STAKE',acc:'LIFETIME',artText:'STAKE\nLIFETIME',category:'Gambling',badge:'LIFETIME',desc:"Compte Stake lifetime actif et vérifié. Livré par mail rapidement. Format Email:Password.",priceDisplay:'€3.00',variants:null,stock:39,delivery:'Livraison par mail (< 2h)',accent:'#00e701',glow:'rgba(0,231,1,.5)'},
+  {id:'disney',name:'DISNEY+',acc:'LIFETIME',artText:'DISNEY+\nLIFETIME',category:'Streaming',badge:'LIFETIME',desc:"Compte Disney+ lifetime livré par mail. Disney, Marvel, Star Wars, Nat Geo — tout le catalogue. Format Email:Password.",priceDisplay:'€2.00',variants:null,stock:9,delivery:'Livraison par mail (< 2h)',accent:'#0063e5',glow:'rgba(0,99,229,.5)'},
+  {id:'tools',name:'OBLIX',acc:'TOOLS',artText:'OBLIX\nTOOLS',category:'Multi-accès',badge:'POPULAIRE',desc:"Les outils qu'on utilise chez Oblix, mis à dispo. Day / Week / Month / Lifetime — tu choisis ce qui te convient.",priceDisplay:null,variants:[{name:'Day Access',stock:999,price:'€6.00'},{name:'Week Access',stock:999,price:'€9.99'},{name:'Monthly Access',stock:999,price:'€18.99'},{name:'Lifetime',stock:999,price:'€35.00'}],stock:999,delivery:'Livraison instantanée',accent:'#1a6be0',glow:'rgba(26,107,224,.5)'},
+  {id:'search',name:'OBLIX',acc:'SEARCH',artText:'OBLIX\nSEARCH',category:'Bot Discord',badge:'OSINT',desc:"Bot OSINT sur Discord. Tu balances un pseudo, un mail, une IP ou un numéro — il te sort tout ce qu'il trouve en temps réel.",priceDisplay:'€20.00',variants:null,stock:82,delivery:'Livraison manuelle (< 24h)',accent:'#7040e0',glow:'rgba(112,64,224,.5)'},
+  {id:'boost1',name:'SERVER BOOST',acc:'x14 · 1 MOIS',artText:'SERVER\nBOOST',category:'Boost Discord',badge:null,desc:"14 boosts pour ton serv, niveau 3 direct. Audio 384kbps, emojis animés, bannière custom. Valable 1 mois.",priceDisplay:'€2.50',variants:null,stock:80,delivery:'Livraison dans les 24h',accent:'#9966ff',glow:'rgba(153,102,255,.5)'},
+  {id:'boost3',name:'SERVER BOOST',acc:'x14 · 3 MOIS',artText:'SERVER\nBOOST',category:'Boost Discord',badge:'PROMO',desc:"Même chose mais sur 3 mois. Le meilleur rapport qualité/prix si t'as un serv actif.",priceDisplay:'€5.00',variants:null,stock:48,delivery:'Livraison dans les 24h',accent:'#bb88ff',glow:'rgba(187,136,255,.5)'},
+  {id:'nitro',name:'NITRO',acc:'METHOD',artText:'NITRO\nMETHOD',category:'Method',badge:'EXCLUSIF',desc:"La méthode qu'on utilise pour avoir le Nitro. Step by step, ça marche vraiment. Accès à vie + MAJ si ça change.",priceDisplay:'€30.00',variants:null,stock:999,delivery:'Livraison instantanée',accent:'#cc44ee',glow:'rgba(204,68,238,.5)'},
+  {id:'spotify',name:'SPOTIFY',acc:'PREMIUM',artText:'SPOTIFY\nPREMIUM',category:'Streaming',badge:'LIFETIME',desc:"Compte Spotify Premium lifetime. Pas de pub, qualité max, téléchargement offline. Livré sous 2h par mail.",priceDisplay:'€3.00',variants:null,stock:58,delivery:'Livraison par mail (< 2h)',accent:'#1db954',glow:'rgba(29,185,84,.5)'},
+  {id:'chatgpt',name:'CHATGPT+',acc:'LIFETIME',artText:'CHATGPT+\nLIFETIME',category:'AI',badge:'LIFETIME',desc:"Compte ChatGPT+ lifetime. Individual ou Business selon tes besoins. GPT-4, génération d'images, pas de limite. Format Email:Password.",priceDisplay:null,variants:[{name:'Individual',stock:77,price:'€4.00'},{name:'Business',stock:60,price:'€8.00'}],stock:32,delivery:'Livraison par mail (< 2h)',accent:'#10a37f',glow:'rgba(16,163,127,.5)'},
+  {id:'nitrolife',name:'NITRO',acc:'LIFETIME',artText:'NITRO\nLIFETIME',category:'Discord',badge:'LIFETIME',desc:"Nitro à vie, direct sur ton compte. Boosting, emojis custom, badge, vidéo 4K — tout ça pour toujours.",priceDisplay:'€30.00',variants:null,stock:12,delivery:'Livraison instantanée',accent:'#5865f2',glow:'rgba(88,101,242,.5)'},
+  {id:'fivem',name:'FRESH',acc:'FIVEM',artText:'FRESH\nFIVEM',category:'Gaming',badge:'CLEAN',desc:"Compte FiveM propre, jamais banni. Si t'as besoin de repartir de zéro, c'est ce qu'il te faut. Livré rapide.",priceDisplay:'€0.80',variants:null,stock:71,delivery:'Livraison par mail (< 2h)',accent:'#f84f00',glow:'rgba(248,79,0,.5)'},
 ];
 
 /* ══════════════════════════════════════════════════
@@ -863,11 +1097,49 @@ function buildCard(p,idx){
     <div class="pcard-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
   `;
   card.addEventListener('click',()=>openModal(p));
+
+  // LOW STOCK badge
+  if(p.stock < 15 && p.stock !== 999){
+    const ls=document.createElement('div');
+    ls.className='pcard-lowstock';
+    ls.textContent='⚠ Stock bas';
+    card.appendChild(ls);
+  }
+
+  // NEW badge override for specific products
+  const newIds=['chatgpt','nitrolife','fivem','disney','stake','netflix'];
+  if(newIds.includes(p.id)){
+    const badgeEl=card.querySelector('.pcard-badge');
+    if(!badgeEl){
+      const nb=document.createElement('div');
+      nb.className='pcard-badge badge-new';
+      nb.style.background='linear-gradient(135deg,#22dd66,#00aa44)';
+      nb.style.color='#000';
+      nb.textContent='NEW';
+      card.appendChild(nb);
+    }
+  }
+
   return card;
 }
 
 const grid=document.getElementById('prodGrid');
 PRODUCTS.forEach((p,i)=>grid.appendChild(buildCard(p,i)));
+
+// ── FILTER LOGIC ──
+document.querySelectorAll('.filt').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filt').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat=btn.dataset.cat;
+    grid.querySelectorAll('.pcard').forEach((card,i)=>{
+      const p=PRODUCTS[i];
+      const show = cat==='all' || p.category===cat ||
+        (cat==='Discord' && (p.category==='Boost Discord'||p.category==='Bot Discord'||p.category==='Discord'||p.category==='Method'));
+      card.style.display=show?'':'none';
+    });
+  });
+});
 
 function drawAll(){
   PRODUCTS.forEach((p,i)=>{
