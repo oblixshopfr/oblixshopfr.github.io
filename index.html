@@ -3,26 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oblix Shop — Produits Premium FR</title>
-
-<!-- SEO -->
-<meta name="description" content="Oblix Shop — La boutique française de produits premium. Livraison rapide, support 24/7, satisfaction garantie.">
-
-<!-- Open Graph (Discord, Facebook, iMessage, Telegram...) -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://oblixshopfr.github.io/">
-<meta property="og:title" content="Oblix Shop — Produits Premium FR 🔴">
-<meta property="og:description" content="La boutique française de confiance. Produits premium, livraison rapide, support 24/7. Découvre notre catalogue exclusif.">
-<meta property="og:site_name" content="Oblix Shop">
-<meta property="og:locale" content="fr_FR">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Oblix Shop — Produits Premium FR 🔴">
-<meta name="twitter:description" content="La boutique française de confiance. Produits premium, livraison rapide, support 24/7.">
-
-<!-- Theme color (barre navigateur mobile) -->
-<meta name="theme-color" content="#d41818">
+<title>Oblix Shop</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Black+Ops+One&family=Rajdhani:wght@500;600;700&family=Orbitron:wght@700;900&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;1,800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -397,7 +378,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
 .pay-methods{display:flex;gap:8px;flex-wrap:wrap;}
 .pay-badge{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:9px;padding:9px 15px;transition:all .2s;}
 .pay-badge:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);}
-.pay-icon{width:24px;height:24px;object-fit:contain;flex-shrink:0;filter:brightness(1.1);}
+.pay-icon{width:30px;height:30px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 0 6px rgba(255,255,255,.15));}
 .pay-name{font-family:'Rajdhani',sans-serif;font-weight:700;font-size:13px;letter-spacing:.5px;color:#ccc;}
 @media(max-width:700px){nav{padding:0 14px;}.nav-links{display:none;}.hero{padding:64px 16px 44px;}.section{padding:0 14px 64px;}.modal-left{min-height:200px;}}
 
@@ -626,15 +607,15 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
         <div class="pay-label">Moyens de paiement acceptés</div>
         <div class="pay-methods">
           <div class="pay-badge">
-            <img class="pay-icon" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+            <svg class="pay-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42c-.028.18-.058.36-.095.544-1.217 6.257-5.363 8.535-10.657 8.535H8.07c-.524 0-.968.382-1.05.9L5.6 24h4.117c.457 0 .845-.333.917-.784l.038-.197.73-4.63.047-.254c.072-.451.46-.784.917-.784h.578c3.746 0 6.676-1.52 7.532-5.918.358-1.836.173-3.368-.854-4.446z" fill="#009cde"/><path d="M19.484 6.257c-.143-.041-.29-.079-.44-.114a10.24 10.24 0 0 0-.528-.1 12.89 12.89 0 0 0-2.047-.156H10.66a.918.918 0 0 0-.917.784l-1.54 9.764-.045.285a1.06 1.06 0 0 1 1.05-.9h2.19c4.298 0 7.664-1.747 8.647-6.797.03-.149.054-.294.077-.437-.248-.132-.51-.25-.797-.354l.159.025z" fill="#012169"/></svg>
             <span class="pay-name">PayPal</span>
           </div>
           <div class="pay-badge">
-            <img class="pay-icon" src="https://cryptologos.cc/logos/litecoin-ltc-logo.svg?v=035" alt="LTC">
+            <svg class="pay-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#BFBBBB"/><path d="M12 4.5L7.5 12l4.5 2.5 4.5-2.5L12 4.5zm0 9l-4.5-2.5L12 19.5l4.5-8-4.5 2.5z" fill="#fff"/><path d="M12 4.5v7l4.5-2.5L12 4.5zm0 11.5v3.5l4.5-8L12 16z" fill="#d3d3d3"/></svg>
             <span class="pay-name">Litecoin</span>
           </div>
           <div class="pay-badge">
-            <img class="pay-icon" src="https://cryptologos.cc/logos/solana-sol-logo.svg?v=035" alt="SOL">
+            <svg class="pay-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="solGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#9945FF"/><stop offset="100%" style="stop-color:#14F195"/></linearGradient></defs><circle cx="12" cy="12" r="12" fill="url(#solGrad)"/><path d="M6 15.5h9.5l-1.5 1.5H6V15.5zm0-4.5h10.5l-1.5 1.5H6V11zm1.5-4.5H17L15.5 8H7.5L6 6.5z" fill="#fff"/></svg>
             <span class="pay-name">Solana</span>
           </div>
         </div>
