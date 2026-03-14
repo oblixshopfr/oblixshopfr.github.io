@@ -145,7 +145,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(6,6,6,.93);backdrop-filter
   font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:5px;
   color:rgba(212,24,24,.4);text-transform:uppercase;
 }
-.hero-sub{font-family:'Space Grotesk',sans-serif;font-size:15px;color:rgba(255,255,255,.42);margin-bottom:44px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.75;border-left:2px solid rgba(212,24,24,.35);padding-left:16px;text-align:left;letter-spacing:.2px;}
+.hero-sub{font-family:'Space Grotesk',sans-serif;font-size:16px;color:rgba(255,255,255,.38);margin-bottom:44px;font-weight:300;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.9;text-align:center;letter-spacing:.3px;}
 .hero-sub b{color:rgba(255,255,255,.75);font-weight:500;}
 .hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
 .btn-red{background:var(--red);color:#fff;border:none;padding:13px 32px;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .22s;box-shadow:0 4px 24px rgba(200,0,0,.32);}
@@ -503,6 +503,39 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
 .rsumm-bar-lbl{font-size:11px;color:#555;font-family:'Space Grotesk',sans-serif;width:10px;text-align:right;}
 .rsumm-bar-track{width:120px;height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;}
 .rsumm-bar-fill{height:100%;background:linear-gradient(90deg,#ffa020,#ffcc60);border-radius:2px;}
+
+/* ── HERO SUB ANIMATED ── */
+.hero-sub-anim{
+  font-family:'Syne',sans-serif;
+  font-size:22px;
+  font-weight:700;
+  color:var(--red2);
+  margin-bottom:44px;
+  text-align:center;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  line-height:1.6;
+  min-height:34px;
+  text-shadow:0 0 30px rgba(212,24,24,.4);
+}
+.hero-sub-prefix{color:rgba(255,255,255,.3);}
+.hero-sub-cycle{
+  color:var(--red2);
+  font-weight:700;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-family:'Syne',sans-serif;
+  position:relative;
+  text-shadow:0 0 24px rgba(212,24,24,.5);
+}
+.hero-sub-cursor{
+  display:inline-block;
+  color:var(--red);
+  font-weight:300;
+  animation:cursorblink .75s step-end infinite;
+  margin-left:2px;
+}
+@keyframes cursorblink{0%,100%{opacity:1;}50%{opacity:0;}}
 </style>
 </head>
 <body>
@@ -551,7 +584,9 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
 <section class="hero reveal">
   <h1><span class="white-word">OBLIX</span><span class="sep"></span><span class="red">SHOP</span></h1>
   <div class="hero-pill"><span class="hero-pill-dot"></span>Premium Digital Tools</div>
-  <p class="hero-sub"><b>Comptes premium, tools Discord, méthodes.</b><br>On livre vite, on répond vite, les prix sont honnêtes.</p>
+  <div class="hero-sub-anim">
+  <span class="hero-sub-cycle" id="heroSubCycle"></span><span class="hero-sub-cursor">|</span>
+</div>
   <div class="hero-ctas">
     <a href="#shop" class="btn-red">Voir les produits</a>
     <a href="https://discord.gg/DNQeVQeh4X" target="_blank" class="btn-ghost">Discord</a>
@@ -863,87 +898,83 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
 </div>
 
 <script>
-/* ── FX: PURE ELECTRIC ARCS + SPARKS ── */
+/* ── FX: BLOOD RAIN ── */
 (function(){
   const c=document.getElementById('fx-canvas'),ctx=c.getContext('2d');
   let W,H;
   function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
   resize();window.addEventListener('resize',resize);
 
-  function seg(x1,y1,x2,y2,o,d){
-    if(d<1)return[[x1,y1,x2,y2]];
-    const mx=(x1+x2)/2+(Math.random()-.5)*o,my=(y1+y2)/2+(Math.random()-.5)*o;
-    return[...seg(x1,y1,mx,my,o/2,d-1),...seg(mx,my,x2,y2,o/2,d-1)];
+  const drops=[];
+  const COLS=['rgba(180,0,0','rgba(212,24,24','rgba(140,0,0','rgba(255,30,30','rgba(100,0,0'];
+
+  function spawn(){
+    const x=Math.random()*W;
+    const len=8+Math.random()*28;
+    const speed=1.2+Math.random()*2.8;
+    const col=COLS[Math.floor(Math.random()*COLS.length)];
+    const alpha=0.04+Math.random()*0.13;
+    const width=0.4+Math.random()*1.2;
+    drops.push({x,y:-len,len,speed,col,alpha,width,splat:false,splatR:0,splatAlpha:0});
   }
 
-  function drawArc(x1,y1,x2,y2,alpha,col){
-    const segs=seg(x1,y1,x2,y2,60,5);
-    ctx.save();
-    ctx.globalCompositeOperation='screen';
-    ctx.shadowColor=col;ctx.shadowBlur=22;
-    ctx.strokeStyle=`rgba(255,255,255,${alpha*.2})`;ctx.lineWidth=2.8;
-    ctx.beginPath();ctx.moveTo(x1,y1);segs.forEach(s=>ctx.lineTo(s[2],s[3]));ctx.stroke();
-    ctx.shadowBlur=5;
-    ctx.strokeStyle=`rgba(255,255,255,${alpha*.72})`;ctx.lineWidth=.7;
-    ctx.beginPath();ctx.moveTo(x1,y1);segs.forEach(s=>ctx.lineTo(s[2],s[3]));ctx.stroke();
-    ctx.restore();
-  }
-
-  function drawBranch(x,y,alpha,col){
-    const angle=Math.random()*Math.PI*2,len=12+Math.random()*50;
-    const segs=seg(x,y,x+Math.cos(angle)*len,y+Math.sin(angle)*len,22,3);
-    ctx.save();
-    ctx.globalCompositeOperation='screen';
-    ctx.shadowColor=col;ctx.shadowBlur=8;
-    ctx.strokeStyle=`rgba(255,255,255,${alpha*.3})`;ctx.lineWidth=.45;
-    ctx.beginPath();ctx.moveTo(x,y);segs.forEach(s=>ctx.lineTo(s[2],s[3]));ctx.stroke();
-    ctx.restore();
-  }
-
-  const arcs=[];
-  function spawnArc(){
-    const x1=Math.random()*W,y1=Math.random()*H;
-    const angle=Math.random()*Math.PI*2,dist=60+Math.random()*310;
-    const x2=Math.max(0,Math.min(W,x1+Math.cos(angle)*dist));
-    const y2=Math.max(0,Math.min(H,y1+Math.sin(angle)*dist));
-    const cols=['rgba(255,80,20,.9)','rgba(255,170,60,.85)','rgba(180,210,255,.8)','rgba(255,255,180,.75)'];
-    const col=cols[Math.floor(Math.random()*cols.length)];
-    const mx=x1*.5+x2*.5+(Math.random()-.5)*50,my=y1*.5+y2*.5+(Math.random()-.5)*50;
-    const branches=[{x:mx,y:my}];
-    if(Math.random()>.45)branches.push({x:x1*.35+x2*.65,y:y1*.35+y2*.65});
-    arcs.push({x1,y1,x2,y2,life:1,decay:.08+Math.random()*.15,col,branches});
-  }
-
-  const sparks=[];
-  function spawnSpark(){
-    sparks.push({
-      x:Math.random()*W,y:Math.random()*H,
-      vx:(Math.random()-.5)*.6,vy:-(0.1+Math.random()*.35),
-      life:1,decay:.005+Math.random()*.007,
-      r:.5+Math.random()*1.1,
-      hue:Math.random()<.65?15:Math.random()<.5?45:200
-    });
+  // pre-spawn
+  for(let i=0;i<120;i++){
+    spawn();
+    drops[drops.length-1].y=Math.random()*H;
   }
 
   function frame(){
     ctx.clearRect(0,0,W,H);
-    if(Math.random()<.025)spawnArc();
-    if(Math.random()<.18)spawnSpark();
-    for(let i=arcs.length-1;i>=0;i--){
-      const a=arcs[i];a.life-=a.decay;
-      if(a.life<=0){arcs.splice(i,1);continue;}
-      drawArc(a.x1,a.y1,a.x2,a.y2,a.life,a.col);
-      if(a.life>.3)a.branches.forEach(b=>drawBranch(b.x,b.y,a.life*.55,a.col));
-    }
-    for(let i=sparks.length-1;i>=0;i--){
-      const p=sparks[i];p.x+=p.vx;p.y+=p.vy;p.life-=p.decay;
-      if(p.life<=0){sparks.splice(i,1);continue;}
-      ctx.save();ctx.globalCompositeOperation='screen';ctx.globalAlpha=p.life*.5;
-      const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*3.5);
-      g.addColorStop(0,`hsla(${p.hue},100%,90%,1)`);g.addColorStop(1,`hsla(${p.hue},100%,60%,0)`);
-      ctx.fillStyle=g;ctx.beginPath();ctx.arc(p.x,p.y,p.r*3.5,0,Math.PI*2);ctx.fill();
+
+    // spawn new drops
+    if(Math.random()<.35) spawn();
+
+    for(let i=drops.length-1;i>=0;i--){
+      const d=drops[i];
+
+      if(d.splat){
+        // splat ripple
+        ctx.save();
+        ctx.globalCompositeOperation='screen';
+        ctx.beginPath();
+        ctx.arc(d.x,d.y,d.splatR,0,Math.PI*2);
+        ctx.strokeStyle=`${d.col},${d.splatAlpha})`;
+        ctx.lineWidth=.4;
+        ctx.stroke();
+        ctx.restore();
+        d.splatR+=1.2;
+        d.splatAlpha-=0.008;
+        if(d.splatAlpha<=0){ drops.splice(i,1); }
+        continue;
+      }
+
+      // draw streak
+      ctx.save();
+      const grad=ctx.createLinearGradient(d.x,d.y-d.len,d.x,d.y);
+      grad.addColorStop(0,`${d.col},0)`);
+      grad.addColorStop(1,`${d.col},${d.alpha})`);
+      ctx.strokeStyle=grad;
+      ctx.lineWidth=d.width;
+      ctx.shadowColor=`${d.col},.6)`;
+      ctx.shadowBlur=3;
+      ctx.beginPath();
+      ctx.moveTo(d.x,d.y-d.len);
+      ctx.lineTo(d.x,d.y);
+      ctx.stroke();
       ctx.restore();
+
+      d.y+=d.speed;
+
+      // hit bottom
+      if(d.y>H+d.len){
+        d.splat=true;
+        d.y=H;
+        d.splatR=1;
+        d.splatAlpha=d.alpha*1.5;
+      }
     }
+
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
@@ -1207,6 +1238,38 @@ function closeModal(){overlay.classList.remove('open');document.body.style.overf
 document.getElementById('modalClose').addEventListener('click',closeModal);
 overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+/* ── HERO TYPEWRITER ── */
+(function(){
+  const el = document.getElementById('heroSubCycle');
+  if(!el) return;
+  const phrases = [
+    'Comptes Premium.',
+    'Nitro Lifetime.',
+    'Spotify · Netflix · Disney+.',
+    'Tools Discord.',
+    'ChatGPT+ à prix direct.',
+    'FiveM Fresh.',
+    'Livraison immédiate.'
+  ];
+  let pi=0, ci=0, deleting=false, wait=0;
+  function tick(){
+    const phrase = phrases[pi];
+    if(wait>0){ wait--; setTimeout(tick,60); return; }
+    if(!deleting){
+      el.textContent = phrase.slice(0,ci+1);
+      ci++;
+      if(ci===phrase.length){ deleting=true; wait=38; setTimeout(tick,60); }
+      else setTimeout(tick, 68+Math.random()*40);
+    } else {
+      el.textContent = phrase.slice(0,ci-1);
+      ci--;
+      if(ci===0){ deleting=false; pi=(pi+1)%phrases.length; wait=8; setTimeout(tick,60); }
+      else setTimeout(tick, 32+Math.random()*18);
+    }
+  }
+  setTimeout(tick, 800);
+})();
 
 const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('shown');io.unobserve(e.target);}});},{threshold:.07});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
