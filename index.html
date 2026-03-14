@@ -536,6 +536,55 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
   margin-left:2px;
 }
 @keyframes cursorblink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* ── SEARCH BAR ── */
+.search-wrap{
+  display:flex;justify-content:center;
+  margin-bottom:28px;
+  position:relative;z-index:2;
+}
+.search-box{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(12,3,3,.85);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:40px;
+  padding:10px 20px;
+  width:100%;max-width:420px;
+  transition:border-color .2s,box-shadow .2s;
+  backdrop-filter:blur(10px);
+}
+.search-box:focus-within{
+  border-color:rgba(212,24,24,.4);
+  box-shadow:0 0 20px rgba(212,24,24,.1);
+}
+.search-box svg{width:14px;height:14px;stroke:rgba(255,255,255,.2);flex-shrink:0;transition:stroke .2s;}
+.search-box:focus-within svg{stroke:rgba(212,24,24,.6);}
+.search-input{
+  background:transparent;border:none;outline:none;
+  font-family:'Space Grotesk',sans-serif;font-size:13px;
+  color:#ccc;width:100%;letter-spacing:.3px;
+}
+.search-input::placeholder{color:rgba(255,255,255,.18);}
+.search-count{
+  font-family:'Space Grotesk',sans-serif;font-size:10px;
+  color:rgba(255,255,255,.18);white-space:nowrap;letter-spacing:.5px;
+  flex-shrink:0;
+}
+
+/* ── CARD MICRO-ANIMATIONS ── */
+.pcard{transition:transform .35s cubic-bezier(.22,.68,0,1.3),border-color .3s,box-shadow .3s;}
+.pcard{transform:rotate(var(--tilt,0deg));}.pcard:hover{transform:translateY(-10px) scale(1.02) rotate(calc(var(--tilt,0deg) * 0.5)) !important;}
+.pcard:hover .pcard-name{letter-spacing:1.5px;transition:letter-spacing .3s ease;}
+.pcard-name{transition:letter-spacing .3s ease;}
+.pcard:hover .pcard-badge{transform:scale(1.08);transition:transform .2s;}
+.pcard-badge{transition:transform .2s;}
+.pcard:hover .pcard-price{text-shadow:0 0 20px var(--c-glow,var(--rg)),0 0 40px var(--c-glow,var(--rg));}
+.pcard::after{
+  content:'';position:absolute;inset:0;border-radius:14px;
+  background:linear-gradient(135deg,rgba(255,255,255,.03) 0%,transparent 60%);
+  opacity:0;transition:opacity .3s;pointer-events:none;z-index:5;
+}
+.pcard:hover::after{opacity:1;}
 </style>
 </head>
 <body>
@@ -594,19 +643,26 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
 </section>
 
 <div class="stats reveal">
-  <div class="stat"><span class="stat-n">500+</span><div class="stat-l">Clients fidèles</div></div>
-  <div class="stat"><span class="stat-n">2 000+</span><div class="stat-l">Produits vendus</div></div>
+  <div class="stat"><span class="stat-n">500+</span><div class="stat-l">Clients</div></div>
+  <div class="stat"><span class="stat-n">2k+</span><div class="stat-l">Commandes</div></div>
   <div class="stat"><span class="stat-n">24/7</span><div class="stat-l">Support</div></div>
-  <div class="stat"><span class="stat-n">4.98★</span><div class="stat-l">Note</div></div>
+  <div class="stat"><span class="stat-n">4.9<span style="font-size:14px">★</span></span><div class="stat-l">Note moy.</div></div>
 </div>
 
 <div class="divider"></div>
 
 <section class="section" id="shop">
   <div class="sec-head reveal">
-    <p class="sec-label">Ce qu'on vend</p>
-    <h2 class="sec-title">Boutique</h2>
+    <p class="sec-label">— catalogue —</p>
+    <h2 class="sec-title">Les produits</h2>
     <div class="sec-bar"></div>
+  </div>
+  <div class="search-wrap">
+    <div class="search-box">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input class="search-input" id="searchInput" type="text" placeholder="Rechercher un produit...">
+      <span class="search-count" id="searchCount">15 produits</span>
+    </div>
   </div>
   <div class="filter-bar" id="filterBar">
     <button class="filt active" data-cat="all">Tout</button>
@@ -616,6 +672,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
     <button class="filt" data-cat="AI">AI</button>
     <button class="filt" data-cat="Tool">Tools</button>
     <button class="filt" data-cat="Method">Méthodes</button>
+    <button class="filt" data-cat="VPN">VPN</button>
   </div>
   <div class="prod-grid" id="prodGrid"></div>
 </section>
@@ -658,30 +715,29 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
         <div class="dev-info">
           <div class="dev-name">d3fz</div>
           <div class="dev-handle">d3zf · oblix</div>
-          <div class="dev-role">Owner · Dev · Oblix Project</div>
+          <div class="dev-role">Owner · Dev · en ligne</div>
         </div>
       </div>
       <div class="dev-bio-block">
         <div class="dev-bio-line">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" stroke="#d41818" stroke-width="1.8" stroke-linejoin="round"/><line x1="3" y1="6" x2="21" y2="6" stroke="#d41818" stroke-width="1.8"/></svg>
-          <span>Oblix Multi Tools Project</span>
+          <span>Fondateur &amp; dev du projet Oblix</span>
         </div>
         <div class="dev-bio-line">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#5865f2" stroke-width="1.8"/><path d="M8 9.5C8 7.6 9.6 6 11.5 6c2 0 3.5 1.5 3.5 3.5 0 1.5-.8 2.7-2 3.3v.7h-3v-1.5c1.1-.3 2-.9 2-2.5 0-1.1-.9-2-2-2C9 7.5 8 8.4 8 9.5zm1.5 7.5h3V15h-3v2z" fill="#5865f2"/></svg>
-          <a href="https://discord.gg/oblix" target="_blank" style="color:#5865f2;text-decoration:none;">discord.gg/oblix</a>
-          <span style="color:#333;">·</span>
-          <a href="https://discord.gg/DNQeVQeh4X" target="_blank" style="color:#5865f2;text-decoration:none;">.gg/ovsociety</a>
+          <a href="https://discord.gg/DNQeVQeh4X" target="_blank" style="color:#5865f2;text-decoration:none;">discord.gg/DNQeVQeh4X</a>
         </div>
-        <div class="dev-bio-line">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" stroke="#888" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="7" r="4" stroke="#888" stroke-width="1.8"/></svg>
-          <span style="color:#555;">cracker pas crackhead</span>
+        <div class="dev-bio-line" style="margin-top:10px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#888" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span style="color:#555;font-style:italic;font-size:12px;">"Je vends ce que j'utilise moi-même. Si c'est là c'est que ça marche."</span>
         </div>
       </div>
       <div class="dev-tags">
-        <span class="dev-tag">Discord Tools</span>
+        <span class="dev-tag">Discord</span>
         <span class="dev-tag">OSINT</span>
-        <span class="dev-tag">Automation</span>
-        <span class="dev-tag">Premium Services</span>
+        <span class="dev-tag">Streaming</span>
+        <span class="dev-tag">VPN</span>
+        <span class="dev-tag">Gaming</span>
       </div>
     </div>
   </div>
@@ -838,11 +894,11 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
     <a href="#reviews">Avis</a>
     <a href="#terms">CGV</a>
   </div>
-  <div class="foot-copy">© 2025 Oblix Shop · Tous droits réservés · Les produits vendus sont fournis tels quels</div>
+  <div class="foot-copy">© 2025 — 2026 · Oblix Shop · Tous droits réservés · Les produits vendus sont fournis tels quels</div>
 </footer>
 
 <a href="https://discord.gg/DNQeVQeh4X" target="_blank" class="promo">
-  Rejoins le Discord pour commander <span>→</span>
+  T'as une question ? On est sur Discord <span>→</span>
 </a>
 
 <!-- MODAL -->
@@ -869,7 +925,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
         <div class="variants" id="mVars"></div>
       </div>
       <div>
-        <div class="sect-lbl">Livraison &amp; support</div>
+        <div class="sect-lbl">Délai &amp; suivi</div>
         <div class="chips" id="mChips"></div>
       </div>
       <div>
@@ -890,7 +946,7 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
         </div>
       </div>
       <a href="https://discord.gg/DNQeVQeh4X" target="_blank" class="modal-buy">
-        Acheter maintenant
+        Commander sur Discord
         <svg viewBox="0 0 24 24"><path d="M7 17L17 7M7 7h10v10"/></svg>
       </a>
     </div>
@@ -898,13 +954,58 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
 </div>
 
 <script>
-/* ── FX: BLOOD RAIN ── */
+/* ── FX: BLOOD ARCS + BLOOD RAIN ── */
 (function(){
   const c=document.getElementById('fx-canvas'),ctx=c.getContext('2d');
   let W,H;
   function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
   resize();window.addEventListener('resize',resize);
 
+  // ── ELECTRIC ARCS ──
+  function seg(x1,y1,x2,y2,o,d){
+    if(d<1)return[[x1,y1,x2,y2]];
+    const mx=(x1+x2)/2+(Math.random()-.5)*o*1.4,my=(y1+y2)/2+(Math.random()-.5)*o*.3;
+    return[...seg(x1,y1,mx,my,o/2,d-1),...seg(mx,my,x2,y2,o/2,d-1)];
+  }
+  function drawArc(x1,y1,x2,y2,alpha,col){
+    const segs=seg(x1,y1,x2,y2,55,5);
+    ctx.save();
+    ctx.globalCompositeOperation='screen';
+    ctx.shadowColor=col;ctx.shadowBlur=45;
+    ctx.strokeStyle=`rgba(200,0,0,${alpha*.55})`;ctx.lineWidth=3.5;
+    ctx.beginPath();ctx.moveTo(x1,y1);segs.forEach(s=>ctx.lineTo(s[2],s[3]));ctx.stroke();
+    ctx.shadowBlur=12;
+    ctx.strokeStyle=`rgba(255,40,40,${alpha*.95})`;ctx.lineWidth=1.2;
+    ctx.beginPath();ctx.moveTo(x1,y1);segs.forEach(s=>ctx.lineTo(s[2],s[3]));ctx.stroke();
+    ctx.restore();
+  }
+  function drawBranch(x,y,alpha,col){
+    const angle=Math.random()*Math.PI*2,len=10+Math.random()*45;
+    const segs=seg(x,y,x+Math.cos(angle)*len,y+Math.sin(angle)*len,18,3);
+    ctx.save();ctx.globalCompositeOperation='screen';
+    ctx.shadowColor=col;ctx.shadowBlur=7;
+    ctx.strokeStyle=`rgba(255,30,30,${alpha*.7})`;ctx.lineWidth=.9;
+    ctx.beginPath();ctx.moveTo(x,y);segs.forEach(s=>ctx.lineTo(s[2],s[3]));ctx.stroke();
+    ctx.restore();
+  }
+  const arcs=[];
+  const ARC_COLS=['rgba(180,0,0','rgba(212,24,24','rgba(140,0,0','rgba(255,20,20','rgba(100,0,0'];
+  function spawnArc(){
+    const x1=30+Math.random()*(W-60);
+    const y1=0; // always from top edge
+    const drift=(Math.random()-.5)*160; // natural horizontal wander
+    const len=180+Math.random()*280;
+    const x2=Math.max(20,Math.min(W-20,x1+drift));
+    const y2=Math.min(H,y1+len);
+    const col=ARC_COLS[Math.floor(Math.random()*ARC_COLS.length)];
+    // multiple branch points along the bolt
+    const branches=[];
+    if(Math.random()>.45)branches.push({x:x1*.6+x2*.4+(Math.random()-.5)*40,y:y1*.3+y2*.7});
+    if(Math.random()>.65)branches.push({x:x1*.35+x2*.65+(Math.random()-.5)*30,y:y1*.5+y2*.5});
+    arcs.push({x1,y1,x2,y2,life:1,decay:.06+Math.random()*.06,col,branches});
+  }
+
+  // ── BLOOD RAIN ──
   const drops=[];
   const COLS=['rgba(180,0,0','rgba(212,24,24','rgba(140,0,0','rgba(255,30,30','rgba(100,0,0'];
 
@@ -913,8 +1014,8 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
     const len=8+Math.random()*28;
     const speed=1.2+Math.random()*2.8;
     const col=COLS[Math.floor(Math.random()*COLS.length)];
-    const alpha=0.04+Math.random()*0.13;
-    const width=0.4+Math.random()*1.2;
+    const alpha=0.12+Math.random()*0.28;
+    const width=0.8+Math.random()*2.2;
     drops.push({x,y:-len,len,speed,col,alpha,width,splat:false,splatR:0,splatAlpha:0});
   }
 
@@ -926,6 +1027,17 @@ footer{position:relative;z-index:1;border-top:1px solid rgba(200,0,0,.14);paddin
 
   function frame(){
     ctx.clearRect(0,0,W,H);
+
+    // spawn arcs
+    if(Math.random()<.018) spawnArc();
+
+    // draw arcs
+    for(let i=arcs.length-1;i>=0;i--){
+      const a=arcs[i];a.life-=a.decay;
+      if(a.life<=0){arcs.splice(i,1);continue;}
+      drawArc(a.x1,a.y1,a.x2,a.y2,a.life,a.col+',1)');
+      if(a.life>.25)a.branches.forEach(b=>drawBranch(b.x,b.y,a.life*.5,a.col+',1)'));
+    }
 
     // spawn new drops
     if(Math.random()<.35) spawn();
@@ -995,6 +1107,9 @@ const PRODUCTS=[
   {id:'chatgpt',name:'CHATGPT+',acc:'LIFETIME',artText:'CHATGPT+\nLIFETIME',category:'AI',badge:'LIFETIME',desc:"Compte ChatGPT+ lifetime. Individual ou Business selon tes besoins. GPT-4, génération d'images, pas de limite. Format Email:Password.",priceDisplay:null,variants:[{name:'Individual',stock:77,price:'€4.00'},{name:'Business',stock:60,price:'€8.00'}],stock:32,delivery:'Livraison par mail (< 2h)',accent:'#10a37f',glow:'rgba(16,163,127,.5)'},
   {id:'nitrolife',name:'NITRO',acc:'LIFETIME',artText:'NITRO\nLIFETIME',category:'Discord',badge:'LIFETIME',desc:"Nitro à vie, direct sur ton compte. Boosting, emojis custom, badge, vidéo 4K — tout ça pour toujours.",priceDisplay:'€30.00',variants:null,stock:12,delivery:'Livraison instantanée',accent:'#5865f2',glow:'rgba(88,101,242,.5)'},
   {id:'fivem',name:'FRESH',acc:'FIVEM',artText:'FRESH\nFIVEM',category:'Gaming',badge:'CLEAN',desc:"Compte FiveM propre, jamais banni. Si t'as besoin de repartir de zéro, c'est ce qu'il te faut. Livré rapide.",priceDisplay:'€0.80',variants:null,stock:71,delivery:'Livraison par mail (< 2h)',accent:'#f84f00',glow:'rgba(248,79,0,.5)'},
+  ,{id:'mullvad',name:'MULLVAD',acc:'VPN',artText:'MULLVAD\\nVPN',category:'VPN',badge:'LIFETIME',desc:"Compte Mullvad VPN lifetime. Anonymat total, zéro log, aucune info perso requise. Format Email:Password.",priceDisplay:'€3.00',variants:null,stock:0,delivery:'Livraison par mail (< 2h)',accent:'#ffaa00',glow:'rgba(255,170,0,.5)'}
+  ,{id:'nordvpn',name:'NORDVPN',acc:'LIFETIME',artText:'NORD\\nVPN',category:'VPN',badge:'LIFETIME',desc:"Compte NordVPN lifetime. 6000+ serveurs, 60 pays, AES-256, no-log. Format Email:Password.",priceDisplay:'€2.10',variants:null,stock:0,delivery:'Livraison par mail (< 2h)',accent:'#4687ff',glow:'rgba(70,135,255,.5)'}
+  ,{id:'ipvanish',name:'IPVANISH',acc:'LIFETIME',artText:'IPVANISH\\nVPN',category:'VPN',badge:'LIFETIME',desc:"Compte IPVanish lifetime. 2000+ serveurs, vitesse illimitée, no-log. Format Email:Password.",priceDisplay:'€1.15',variants:null,stock:0,delivery:'Livraison par mail (< 2h)',accent:'#6ec6ff',glow:'rgba(110,198,255,.5)'}
 ];
 
 /* ══════════════════════════════════════════════════
@@ -1108,6 +1223,9 @@ function buildCard(p,idx){
   card.style.setProperty('--c-accent',p.accent);
   card.style.setProperty('--c-glow',p.glow);
   card.style.transitionDelay=(idx*.07)+'s';
+  // subtle tilt — no two cards perfectly aligned
+  const tilt = (Math.random()-.5)*0.6;
+  card.style.setProperty('--tilt', tilt+'deg');
 
   const priceSnip=p.variants
     ?`<span class="pcard-from">À partir de</span> <span class="pcard-price">${p.variants[0].price}</span>`
@@ -1129,8 +1247,21 @@ function buildCard(p,idx){
   `;
   card.addEventListener('click',()=>openModal(p));
 
+  // OUT OF STOCK badge
+  if(p.stock === 0){
+    const os=document.createElement('div');
+    os.className='pcard-lowstock';
+    os.style.background='rgba(80,80,80,.25)';
+    os.style.borderColor='rgba(150,150,150,.3)';
+    os.style.color='#666';
+    os.style.animation='none';
+    os.textContent='Bientôt dispo';
+    card.appendChild(os);
+    card.style.opacity='.6';
+    card.style.pointerEvents='none';
+  }
   // LOW STOCK badge
-  if(p.stock < 15 && p.stock !== 999){
+  if(p.stock > 0 && p.stock < 15 && p.stock !== 999){
     const ls=document.createElement('div');
     ls.className='pcard-lowstock';
     ls.textContent='⚠ Stock bas';
@@ -1157,6 +1288,23 @@ function buildCard(p,idx){
 const grid=document.getElementById('prodGrid');
 PRODUCTS.forEach((p,i)=>grid.appendChild(buildCard(p,i)));
 
+// ── SEARCH LOGIC ──
+const searchInput = document.getElementById('searchInput');
+const searchCount = document.getElementById('searchCount');
+function updateCount(){
+  const visible = [...grid.querySelectorAll('.pcard')].filter(c=>c.style.display!=='none').length;
+  searchCount.textContent = visible + ' produit' + (visible>1?'s':'');
+}
+searchInput.addEventListener('input', ()=>{
+  const q = searchInput.value.toLowerCase().trim();
+  grid.querySelectorAll('.pcard').forEach((card,i)=>{
+    const p = PRODUCTS[i];
+    const match = !q || p.name.toLowerCase().includes(q) || p.acc.toLowerCase().includes(q) || p.category.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
+    card.style.display = match ? '' : 'none';
+  });
+  updateCount();
+});
+
 // ── FILTER LOGIC ──
 document.querySelectorAll('.filt').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -1167,8 +1315,10 @@ document.querySelectorAll('.filt').forEach(btn=>{
       const p=PRODUCTS[i];
       const show = cat==='all' || p.category===cat ||
         (cat==='Discord' && (p.category==='Boost Discord'||p.category==='Bot Discord'||p.category==='Discord'||p.category==='Method'));
+
       card.style.display=show?'':'none';
     });
+    updateCount();
   });
 });
 
@@ -1182,6 +1332,7 @@ function drawAll(){
   });
 }
 setTimeout(drawAll,80);
+setTimeout(()=>{if(typeof updateCount==='function')updateCount();},200);
 window.addEventListener('resize',drawAll);
 
 /* ── MODAL ── */
@@ -1222,8 +1373,8 @@ function openModal(p){
 
   document.getElementById('mChips').innerHTML=`
     <div class="chip"><span class="cdot" style="background:#22dd66;box-shadow:0 0 5px rgba(34,220,102,.8)"></span>${p.delivery}</div>
-    <div class="chip"><span class="cdot" style="background:#2266dd;box-shadow:0 0 5px rgba(34,102,220,.8)"></span>Support 24/7</div>
-    <div class="chip"><span class="cdot" style="background:#dd9922;box-shadow:0 0 5px rgba(220,153,34,.8)"></span>Satisfaction garantie</div>`;
+    <div class="chip"><span class="cdot" style="background:#2266dd;box-shadow:0 0 5px rgba(34,102,220,.8)"></span>On répond vite</div>
+    <div class="chip"><span class="cdot" style="background:#dd9922;box-shadow:0 0 5px rgba(220,153,34,.8)"></span>Compte fonctionnel garanti</div>`;
 
   overlay.classList.add('open');
   document.body.style.overflow='hidden';
